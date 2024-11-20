@@ -72,7 +72,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/learning/lesson/:lesson_no',
-    element: <LessonDetails></LessonDetails>,
+    element: <PrivateRoute><LessonDetails></LessonDetails></PrivateRoute>,
     errorElement: <ErrorPage></ErrorPage>
   },
 

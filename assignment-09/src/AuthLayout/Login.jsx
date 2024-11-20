@@ -4,11 +4,23 @@ import { AuthContext } from '../AuthProvider'
 import { FcGoogle } from 'react-icons/fc'
 
 const Login = () => {
-  const { signInUser, setUser } = useContext(AuthContext)
+  const { signInUser, setUser,signInWithGoogle } = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState({})
-  //   console.log(location)
+
+  const handleLogInWithGoogle = () => {
+    signInWithGoogle()
+      .then(result => {
+        setUser(result.user);
+        console.log(result.user);
+        navigate(location?.state ? location.state : '/');
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+  }
 
   const handleLogin = event => {
     event.preventDefault()
@@ -100,8 +112,8 @@ const Login = () => {
         </div>
 
         <div className="">
-          <button className="btn bg-white rounded-full border border-black/50 w-full mt-6">
-          <FcGoogle className='text-lg'/>
+          <button onClick={handleLogInWithGoogle} className="btn bg-white rounded-full border border-black/50 w-full mt-6">
+            <FcGoogle className='text-lg' />
             <p className=""> Continue with Google</p>
           </button>
         </div>

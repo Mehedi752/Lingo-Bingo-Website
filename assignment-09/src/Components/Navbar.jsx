@@ -69,12 +69,14 @@ const Navbar = () => {
             <div className='flex gap-2 items-center'>
               {
                 user && user.photoURL ? (
-                  <div className="flex flex-col items-center">
-                    <img src={user.photoURL} alt='' className='w-10 h-10 rounded-full bg-[#706f6f]' />
-                    <p className="text-xs font-semibold text-white">{user.displayName}</p>
+                  <div className="relative group">
+                    <img src={user.photoURL} alt='' className='w-12 h-12 rounded-full bg-[#706f6f]' />
+                    <div className="absolute top-12 -right-7 w-[100px] text-center text-white bg-gradient-to-r from-pink-500 to-orange-500 p-2  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {user.displayName}
+                    </div>
                   </div>
                 ) : (
-                  <img src={userImg} alt='' className='w-10 h-10 rounded-full' />
+                  <img src={userImg} alt='' className='w-12 h-12 rounded-full' />
                 )
               }
               {user && user.email ? (

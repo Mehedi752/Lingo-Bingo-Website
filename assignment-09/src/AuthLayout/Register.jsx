@@ -1,16 +1,30 @@
 import { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
 import { FcGoogle } from 'react-icons/fc'
 
 const Register = () => {
-  const { createNewUser, user, setUser, updateProfileUser } =
-    useContext(AuthContext)
-  //   console.log(user)
+  const { createNewUser, user, setUser, updateProfileUser, signInWithGoogle } = useContext(AuthContext)
+
   const [error, setError] = useState({})
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const passwordRegeX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
+
+  const handleLogInWithGoogle = () => {
+    signInWithGoogle()
+      .then(result => {
+        setUser(result.user);
+        console.log(result.user);
+        navigate(location?.state ? location.state : '/');
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+  }
 
 
   const handleRegister = event => {
@@ -26,7 +40,7 @@ const Register = () => {
       return
     }
 
-    if (!passwordRegeX.test('password')) {
+    if (!passwordRegeX.test(password)) {
       setError({ ...error, message: 'Password must be at least one capital letter, at least one small letter and at least 6 characters.' });
       return;
     }
@@ -54,7 +68,7 @@ const Register = () => {
         setUser(result.user)
         updateProfileUser({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate('/')
+            navigate(location?.state ? location.state : '/');
           })
           .catch(error => {
             console.log(error)
@@ -160,7 +174,7 @@ const Register = () => {
         </div>
 
         <div className="">
-          <button className="btn bg-white rounded-full border border-black/50 w-full mt-6">
+          <button onClick={handleLogInWithGoogle} className="btn bg-white rounded-full border border-black/50 w-full mt-6">
             <FcGoogle className='text-lg' />
             <p className=""> Continue with Google</p>
           </button>
