@@ -91,7 +91,7 @@ const LessonDetails = () => {
                                 <div className="flex items-center justify-between mt-5">
                                     <button
                                         onClick={() => { openModal(vocabulary); handlePronounce(vocabulary.word); }}
-                                        className="px-4 py-2 btn bg-gradient-to-r from-cyan-500 to-blue-500  text-white rounded-none shadow-black border-none"
+                                        className="px-4 py-2 btn bg-gradient-to-r from-cyan-500 to-blue-500  text-white rounded-none  border-none"
                                     >
                                         When to Say
                                     </button>
@@ -99,7 +99,7 @@ const LessonDetails = () => {
 
                                     <button
                                         onClick={() => navigate("/learning")}
-                                        className="px-4 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 btn text-white rounded-none shadow-black border-none"
+                                        className="px-4 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 btn text-white rounded-none border-none"
                                     >
                                         Back to Lesson
                                     </button>

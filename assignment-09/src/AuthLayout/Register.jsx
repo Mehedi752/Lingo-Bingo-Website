@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
+import { FcGoogle } from 'react-icons/fc'
 
 const Register = () => {
   const { createNewUser, user, setUser, updateProfileUser } =
@@ -10,7 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const passwordRegeX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
- 
+
 
   const handleRegister = event => {
     event.preventDefault()
@@ -150,6 +151,20 @@ const Register = () => {
             Login
           </Link>
         </h3>
+
+
+        <div className="mt-6 flex items-center">
+          <div className="border-t-2 w-[40%]"></div>
+          <h3 className="w-[20%] text-center font-semibold">Or</h3>
+          <div className="border-t-2 w-[40%]"></div>
+        </div>
+
+        <div className="">
+          <button className="btn bg-white rounded-full border border-black/50 w-full mt-6">
+            <FcGoogle className='text-lg' />
+            <p className=""> Continue with Google</p>
+          </button>
+        </div>
       </div>
     </div>
   )
