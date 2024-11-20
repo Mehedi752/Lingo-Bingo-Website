@@ -1,8 +1,5 @@
 import { useState } from "react";
-// bg-[#E7C1D3]
-// bg-[#A4DAC3]
-// bg-[#EFDA6E]
-// bg-[#77AAEA]
+
 const faqs = [
     {
         id: 1,
@@ -32,7 +29,7 @@ const FAQ = () => {
         <section
             className="bg-gradient-to-r from-indigo-100 to-blue-50 py-12"
         >
-            <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
+            <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">
                 Frequently Asked Questions
             </h2>
             <div className="max-w-5xl mx-auto space-y-4 px-4">

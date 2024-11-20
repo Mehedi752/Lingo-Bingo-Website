@@ -87,8 +87,8 @@ const Login = () => {
 
         <h3 className='text-[#706f6f] text-center text-base font-semibold'>
           Don’t Have An Account ?{' '}
-          <Link className='text-red-600' to={'/auth/register'}>
-            Register
+          <Link className='text-red-600 underline' to={'/auth/register'}>
+            Create an account
           </Link>
         </h3>
       </div>
