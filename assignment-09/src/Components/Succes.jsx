@@ -16,7 +16,7 @@ const Success = () => {
             <FaUser className="text-blue-600 text-5xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-blue-700">Users</h3>
             <p className="text-4xl font-bold text-blue-900">
-              <CountUp start={0} end={1500} duration={2.5} />+
+              <CountUp start={0} end={1500} duration={2.5} />
             </p>
           </div>
 
@@ -25,7 +25,7 @@ const Success = () => {
             <FaBookOpen className="text-blue-600 text-5xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-blue-700">Lessons</h3>
             <p className="text-4xl font-bold text-blue-900">
-              <CountUp start={0} end={50} duration={2.5} />+
+              <CountUp start={0} end={50} duration={2.5} />
             </p>
           </div>
 
@@ -34,7 +34,7 @@ const Success = () => {
             <FaLanguage className="text-blue-600 text-5xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-blue-700">Vocabularies</h3>
             <p className="text-4xl font-bold text-blue-900">
-              <CountUp start={0} end={2000} duration={2.5} />+
+              <CountUp start={0} end={2000} duration={2.5} />
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const Success = () => {
             <FaVideo className="text-blue-600 text-5xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-blue-700">Tutorials</h3>
             <p className="text-4xl font-bold text-blue-900">
-              <CountUp start={0} end={100} duration={2.5} />+
+              <CountUp start={0} end={100} duration={2.5} />
             </p>
           </div>
         </div>

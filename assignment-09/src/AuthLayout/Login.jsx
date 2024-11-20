@@ -2,12 +2,17 @@ import { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
 import { FcGoogle } from 'react-icons/fc'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 const Login = () => {
-  const { signInUser, setUser,signInWithGoogle } = useContext(AuthContext)
+  const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = useState({})
+  const [errorMessage, setErrorMessage] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const handleLogInWithGoogle = () => {
     signInWithGoogle()
@@ -15,9 +20,21 @@ const Login = () => {
         setUser(result.user);
         console.log(result.user);
         navigate(location?.state ? location.state : '/');
+        toast.success('Congrats Login Success With Google in The German Language Learning Site!', {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: true,
+          theme: "colored",
+        });
+
       })
       .catch(error => {
         console.log(error)
+        toast.error(`${error.message}`, {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "colored",
+        });
       })
 
   }
@@ -32,10 +49,23 @@ const Login = () => {
       .then(result => {
         console.log(result)
         setUser(result.user)
+        toast.success('Congrats, Login Success in The German Language Learning Site!', {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: true,
+          theme: "colored",
+        });
         navigate(location?.state ? location.state : '/')
       })
       .catch(error => {
         // console.log(error)
+        toast.error(`${error.message}`, {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: true,
+          theme: "colored",
+
+        });
         setErrorMessage({ ...error, message: error.code })
       })
   }
@@ -65,19 +95,25 @@ const Login = () => {
                 required
               />
             </div>
-            <div className='form-control'>
+            <div className='form-control relative'>
               <label className='label'>
                 <span className='label-text text-[#403f3f] text-xl font-semibold mb-4'>
                   Password
                 </span>
               </label>
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 name='password'
                 placeholder='Enter your password'
                 className='input input-bordered bg-[#f3f3f3] rounded-[5px] border-none px-5 py-6'
                 required
               />
+
+              <div onClick={() => setShowPassword(!showPassword)} className='absolute right-4 bottom-12'>
+                {
+                  showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                }
+              </div>
               {errorMessage.message ? (
                 <p className='text-red-600 mt-3 text-xs'>
                   {errorMessage.message}
