@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // To navigate and retrieve email from the login page
-import { sendPasswordResetEmail } from "firebase/auth"; // Firebase authentication methods
+import { useLocation, useNavigate } from 'react-router-dom'; 
+import { sendPasswordResetEmail } from "firebase/auth";
 import auth from '../../public/firebase.config';
 import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const navigate = useNavigate();
     const location = useLocation();
 
 
@@ -17,7 +16,7 @@ const ForgotPassword = () => {
             setEmail(location.state);
         }
     }, [location.state]);
-    console.log(email);
+    // //console.log(email);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -55,7 +54,7 @@ const ForgotPassword = () => {
                     >
                         Reset Password
                     </button>
-                    {message && <p className="mt-4 text-red-500">{message}</p>}
+                    {message && <p className="mt-4 text-red-600">{message}</p>}
                 </form>
             </div>
         </div>

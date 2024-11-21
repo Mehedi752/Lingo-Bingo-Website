@@ -12,7 +12,7 @@ const Register = () => {
   const [error, setError] = useState({})
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  //console.log(location);
 
   const passwordRegeX = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +21,7 @@ const Register = () => {
     signInWithGoogle()
       .then(result => {
         setUser(result.user);
-        console.log(result.user);
+        //console.log(result.user);
         navigate(location?.state ? location.state : '/');
         toast.success('Congrats Login Success With Google in The German Language Learning Site!', {
           position: "top-center",
@@ -49,6 +49,12 @@ const Register = () => {
     const photo = data.get('photo')
     const email = data.get('email')
     const password = data.get('password')
+    const terms = event.target.terms.checked;
+
+    if (!terms) {
+      setError({ ...error, message: 'Please accept our terms and conditions' });
+      return;
+    }
 
     if (!name || !photo || !email || !password) {
       setError({ ...error, message: 'Please fill all the fields' })
@@ -78,7 +84,7 @@ const Register = () => {
     setError({ ...error, message: '' });
 
     const user = { name, photo, email, password }
-    // console.log(user)
+    // //console.log(user)
 
     createNewUser(email, password)
       .then(result => {
@@ -94,7 +100,7 @@ const Register = () => {
             });
           })
           .catch(error => {
-            console.log(error)
+            //console.log(error)
             toast.error(`${error.message}`, {
               position: "top-center",
               autoClose: 2000,
@@ -104,7 +110,7 @@ const Register = () => {
           })
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         toast.error(`${error.message}`, {
           position: "top-center",
           autoClose: 2000,
@@ -193,6 +199,11 @@ const Register = () => {
                 }
               </div>
 
+            </div>
+
+            <div className='flex gap-2 mt-2'>
+              <input type="checkbox" name="terms" className="" required />
+              <span className="text-xs label-text">Accept our terms and conditions</span>
             </div>
 
             {error.message && (

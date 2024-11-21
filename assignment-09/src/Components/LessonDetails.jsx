@@ -6,9 +6,9 @@ import Modal from "./Modal";
 
 const LessonDetails = () => {
     const { lesson_no } = useParams();
-    console.log(lesson_no);
+    //console.log(lesson_no);
     // const location = useLocation();
-    // console.log(location);
+    // //console.log(location);
     const [vocabularies, setVocabularies] = useState([]);
     const navigate = useNavigate();
     const [selectedWord, setSelectedWord] = useState(null);
@@ -42,7 +42,7 @@ const LessonDetails = () => {
     };
 
     const filteredVocabularies = vocabularies.filter((vocab) => vocab.lesson_no === parseInt(lesson_no));
-    console.log(filteredVocabularies.length);
+    //console.log(filteredVocabularies.length);
 
     return (
         <div className="">

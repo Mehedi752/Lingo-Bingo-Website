@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Tutorial = () => {
   return (
-    <div className="container mx-auto px-4 mt-10">
+    <div className="container mx-auto px-4 my-10">
       <div className="border-2 w-full lg:w-[500px] p-5 shadow-2xl rounded-xl flex flex-col justify-center mx-auto shadow-black">
         <h2 className="text-4xl text-center font-bold text-blue-800 mb-2">Tutorial Section</h2>
         <p className="text-lg text-center text-black">See some videos to gain some basic knowledge about German Language.</p>

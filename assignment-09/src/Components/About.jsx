@@ -9,7 +9,7 @@ import Navbar from "./Navbar";
 
 const About = () => {
     const location = useLocation();
-    console.log(location.pathname);
+    //console.log(location.pathname);
     return (
             location.pathname === "/about" ? (
                 <div className="">

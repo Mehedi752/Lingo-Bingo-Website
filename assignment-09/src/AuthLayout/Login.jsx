@@ -21,7 +21,7 @@ const Login = () => {
     signInWithGoogle()
       .then(result => {
         setUser(result.user);
-        console.log(result.user);
+        //console.log(result.user);
         navigate(location?.state ? location.state : '/');
         toast.success('Congrats Login Success With Google in The German Language Learning Site!', {
           position: "top-center",
@@ -32,7 +32,7 @@ const Login = () => {
 
       })
       .catch(error => {
-        console.log(error)
+        //console.log(error)
         toast.error(`${error.message}`, {
           position: "top-center",
           autoClose: 2000,
@@ -51,7 +51,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then(result => {
-        console.log(result)
+        //console.log(result)
         setUser(result.user)
         toast.success('Congrats, Login Success in The German Language Learning Site!', {
           position: "top-center",
@@ -62,7 +62,7 @@ const Login = () => {
         navigate(location?.state ? location.state : '/')
       })
       .catch(error => {
-        // console.log(error)
+        // //console.log(error)
         toast.error(`${error.message}`, {
           position: "top-center",
           autoClose: 2000,
