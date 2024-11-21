@@ -24,7 +24,7 @@ const LessonDetails = () => {
     useEffect(() => {
         const fetchVocabulary = async () => {
             try {
-                const response = await fetch("../../public/vocabulary_dataset.json");
+                const response = await fetch("/vocabulary_dataset.json");
                 const data = await response.json();
                 setVocabularies(data);
             } catch (error) {
