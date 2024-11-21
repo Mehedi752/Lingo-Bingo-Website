@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
 import { FcGoogle } from 'react-icons/fc'
@@ -11,10 +11,13 @@ const Login = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState({});
+  const [email, setEmail] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const emailRef = useRef();
 
 
   const handleLogInWithGoogle = () => {
+
     signInWithGoogle()
       .then(result => {
         setUser(result.user);
@@ -43,6 +46,7 @@ const Login = () => {
     event.preventDefault()
     const formData = new FormData(event.target)
     const email = formData.get('email')
+    setEmail(email)
     const password = formData.get('password')
 
     signInUser(email, password)
@@ -70,6 +74,10 @@ const Login = () => {
       })
   }
 
+  const handleForgotPassword = () => {
+    navigate('/auth/forgot-password', { state: emailRef.current.value });
+  }
+
   return (
     <div className='container mx-auto lg:px-[300px] px-10 lg:py-[100px] py-10'>
       <div className='bg-white px-12 lg:px-[96px] py-8 lg:py-[76px]'>
@@ -90,7 +98,10 @@ const Login = () => {
               <input
                 type='email'
                 name='email'
+                ref={emailRef}
                 placeholder='Enter your email address'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className='input input-bordered bg-[#f3f3f3] rounded-[5px] border-none px-5 py-6'
                 required
               />
@@ -120,9 +131,10 @@ const Login = () => {
                 </p>
               ) : (
                 <label className='label'>
-                  <a href='#' className='label-text-alt link link-hover'>
+                  <button onClick={handleForgotPassword} className='label-text-alt link link-hover'>
                     Forgot password?
-                  </a>
+                  </button>
+
                 </label>
               )}
             </div>

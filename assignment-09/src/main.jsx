@@ -22,6 +22,7 @@ import UpdateProfile from './Components/UpdateProfile.jsx'
 import ErrorPage from './Components/ErrorPage.jsx'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import ForgotPassword from './Components/ForgotPassword.jsx'
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: '/auth/register',
         element: <Register></Register>
+      },
+      {
+        path: '/auth/forgot-password',
+        element: <ForgotPassword></ForgotPassword>
       }
     ]
   },
