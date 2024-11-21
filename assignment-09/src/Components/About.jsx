@@ -14,7 +14,7 @@ const About = () => {
             location.pathname === "/about" ? (
                 <div className="">
                     <Navbar className="bg-[#126C4D]"></Navbar>
-                    <div className="my-10 container mx-auto lg:px-[200px]">
+                    <div className="my-10 container mx-auto px-5 lg:px-[200px]">
                         <div className=" bg-[#A4DAC3] p-10 flex flex-col gap-5 rounded-xl">
                             <h3 className="font-bold">Your Guide To The German Learning Jungle!</h3>
                             <p className="">Welcome to GermanLang.com, a site that helps people discover how to learn German Language best. We hope you find something here that will encourage, inspire,

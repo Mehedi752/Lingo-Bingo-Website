@@ -23,7 +23,7 @@ const Register = () => {
         setUser(result.user);
         //console.log(result.user);
         navigate(location?.state ? location.state : '/');
-        toast.success('Congrats Login Success With Google in The German Language Learning Site!', {
+        toast.success(`Congrats ${result.user.displayName} Your Login Success With Google in The German Language Learning Site!`, {
           position: "top-center",
           autoClose: 2000,
           pauseOnHover: true,
@@ -92,7 +92,7 @@ const Register = () => {
         updateProfileUser({ displayName: name, photoURL: photo })
           .then(() => {
             navigate(location?.state ? location.state : '/');
-            toast.success('Congrats, Register Success in The German Language Learning Site!', {
+            toast.success(`Congrats ${result.user.displayName}, Register Success in The German Language Learning Site!`, {
               position: "top-center",
               autoClose: 2000,
               pauseOnHover: true,

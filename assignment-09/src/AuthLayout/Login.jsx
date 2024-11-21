@@ -23,7 +23,7 @@ const Login = () => {
         setUser(result.user);
         //console.log(result.user);
         navigate(location?.state ? location.state : '/');
-        toast.success('Congrats Login Success With Google in The German Language Learning Site!', {
+        toast.success(`Congrats ${result.user.displayName}, Your Login Success in The German Language Learning Site!`, {
           position: "top-center",
           autoClose: 2000,
           pauseOnHover: true,
@@ -53,7 +53,7 @@ const Login = () => {
       .then(result => {
         //console.log(result)
         setUser(result.user)
-        toast.success('Congrats, Login Success in The German Language Learning Site!', {
+        toast.success(`Congrats ${result.user.displayName}, Your Login Success in The German Language Learning Site!`, {
           position: "top-center",
           autoClose: 2000,
           pauseOnHover: true,

@@ -54,6 +54,8 @@ const Navbar = () => {
               <h3 className="text-xl font-semibold text-white">Learn Vocabulary</h3>
             </div>
           </div>
+
+
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 flex gap-3 items-center text-white text-[14px]  font-normal">
               <li><Link to='/' className='hover:bg-gradient-to-r from-cyan-500 to-blue-500 rounded-none'>Home</Link></li>
@@ -69,14 +71,14 @@ const Navbar = () => {
             <div className='flex gap-2 items-center'>
               {
                 user && user.photoURL ? (
-                  <div className="relative group">
-                    <img src={user.photoURL} alt='' className='w-12 h-12 rounded-full bg-[#706f6f]' />
-                    <div className="absolute top-12 -right-7 w-[100px] text-center text-white bg-gradient-to-r from-pink-500 to-orange-500 p-2  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex flex-col items-center">
+                    <img src={user.photoURL} alt='' className='w-10 h-10 rounded-full bg-[#706f6f]' />
+                    <div className="text-center text-white">
                       {user.displayName}
                     </div>
                   </div>
                 ) : (
-                  <img src={userImg} alt='' className='w-12 h-12 rounded-full' />
+                  <img src={userImg} alt='' className='w-10 h-10 rounded-full' />
                 )
               }
               {user && user.email ? (
