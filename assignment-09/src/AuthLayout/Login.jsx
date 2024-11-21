@@ -162,7 +162,7 @@ const Login = () => {
         <div className="">
           <button onClick={handleLogInWithGoogle} className="btn bg-white rounded-full border border-black/50 w-full mt-6">
             <FcGoogle className='text-lg' />
-            <p className=""> Continue with Google</p>
+            <p className="text-xs md:text-base"> Continue with Google</p>
           </button>
         </div>
 

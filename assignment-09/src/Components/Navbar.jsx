@@ -51,7 +51,7 @@ const Navbar = () => {
             </div>
             <div className="hidden lg:flex gap-2 items-center">
               <img src={logo} alt="" className="w-10 h-10" />
-              <h3 className="text-xl font-semibold text-white">Learn Vocabulary</h3>
+              <h3 className="text-xl font-semibold text-white">Lingo Bingo</h3>
             </div>
           </div>
 
