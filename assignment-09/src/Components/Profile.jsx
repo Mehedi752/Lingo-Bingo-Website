@@ -10,7 +10,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="p-10 bg-[#f3f3f3]">
+        <div className="p-5 md:p-10 bg-[#f3f3f3]">
             <h1 className="text-4xl font-bold text-center mb-6">
                 Welcome, {user?.displayName || "User"}!
             </h1>
@@ -22,12 +22,12 @@ const Profile = () => {
                         className="w-24 h-24 rounded-full border-4 border-blue-600"
                     />
                 </div>
-                <div className="text-lg">
+                <div>
                     <p>
-                        <strong>Name:</strong> {user?.displayName || "N/A"}
+                        <strong className="text-lg">Name:</strong> {user?.displayName || "N/A"}
                     </p>
                     <p>
-                        <strong>Email:</strong> {user?.email || "N/A"}
+                        <strong className="text-lg">Email:</strong> {user?.email || "N/A"}
                     </p>
                 </div>
 

@@ -34,7 +34,7 @@ const Tutorials = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {videos.map((video, index) => (
-                            <div className="border-2 p-6 mx-auto shadow-2xl shadow-black flex flex-col justify-center items-center gap-3 rounded-xl border-none bg-[#a4dab3]">
+                            <div className="border-2 p-3 md:p-6 mx-auto shadow-2xl shadow-black flex flex-col justify-center items-center gap-3 rounded-xl border-none bg-[#a4dab3]">
                                 <div key={index} className="aspect-w-16 aspect-h-9">
                                     <iframe
                                         src={video}
