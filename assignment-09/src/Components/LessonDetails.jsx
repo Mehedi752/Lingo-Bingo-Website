@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Modal from "./Modal";
 
 const LessonDetails = () => {
     const { lesson_no } = useParams();
-    //console.log(lesson_no);
-    // const location = useLocation();
-    // //console.log(location);
     const [vocabularies, setVocabularies] = useState([]);
     const navigate = useNavigate();
     const [selectedWord, setSelectedWord] = useState(null);
@@ -21,19 +18,12 @@ const LessonDetails = () => {
         setSelectedWord(null);
     };
 
-    useEffect(() => {
-        const fetchVocabulary = async () => {
-            try {
-                const response = await fetch("/vocabulary_dataset.json");
-                const data = await response.json();
-                setVocabularies(data);
-            } catch (error) {
-                console.error("Error fetching vocabulary:", error);
-            }
-        };
+    const data = useLoaderData();
 
-        fetchVocabulary();
-    }, []);
+    useEffect(() => {
+        setVocabularies(data);
+    }, [data]);
+
 
     const handlePronounce = (word) => {
         const utterance = new SpeechSynthesisUtterance(word);

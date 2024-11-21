@@ -80,7 +80,8 @@ const router = createBrowserRouter([
   {
     path: '/learning/lesson/:lesson_no',
     element: <PrivateRoute><LessonDetails></LessonDetails></PrivateRoute>,
-    errorElement: <ErrorPage></ErrorPage>
+    errorElement: <ErrorPage></ErrorPage>,
+    loader: () => fetch('/vocabulary_dataset.json')
   },
 
   {
